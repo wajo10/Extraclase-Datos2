@@ -4,23 +4,7 @@
 
 #include "Collector.h"
 
-
-void Collector::Reutilizar(size_t valor) {
-    //!Cambiar es el nodo a mover a la lista verdadera
-    Nodo *cambiar = Collector::listaCollector->head;
-    Nodo *aux = cambiar->siguiente;
-    Collector::listaCollector->head=aux;
-
-
-    Nodo *t = Collector::listaNodos->head;
-    while(t->siguiente!= nullptr){
-        t=t->siguiente;
-    }
-    t->siguiente=cambiar;
-    cambiar->setDato(valor);
-
-}
-
+//! Quita el elemento de la lista y devuelve el elemento que se quito
 Nodo *Collector::pop() {
     if (listaCollector->head != nullptr){
         Nodo* toReturn = listaCollector->head;
@@ -31,6 +15,7 @@ Nodo *Collector::pop() {
     return nullptr;
 }
 
+//! Constructor de la clase collector, se instancian las listas collector y nodos
 Collector::Collector() {
         listaCollector = new Lista();
         listaNodos = new Lista();

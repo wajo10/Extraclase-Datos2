@@ -13,7 +13,8 @@ int main() {
     std::cout << "head: " << Collector::getInstance().listaNodos->head << std::endl;
     delete (b);
     delete(c);
-    Nodo* e = new Nodo(9,d);
+    delete(d);
+    Nodo* e = new Nodo(9,a);
     return 0;
 }
 

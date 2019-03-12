@@ -23,6 +23,7 @@ public:
     void* operator new(size_t);
     void operator delete( void*);
     void setDato(int);
+    int getDato();
 
 
     Nodo(int,Nodo*);

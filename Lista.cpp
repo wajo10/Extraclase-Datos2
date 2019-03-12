@@ -5,26 +5,7 @@
 #include "Lista.h"
 
 
-void Lista::insertarAlFinal(int dato) {
-    Nodo* temp = head;
-    if (head != nullptr){
-        while (temp->siguiente  != nullptr){
-            temp = temp->siguiente;
-        }
-        temp->siguiente = getNewNodo(dato);
-    }
-    else{
-        head = getNewNodo(dato);
-    }
-
-}
-
-Nodo* Lista::getNewNodo(int dato) {
-    Nodo* toReturn = new Nodo();
-    toReturn->setDato(dato);
-    return toReturn;
-}
-
+//! agrega al final de la lista collector
 void Lista::insertarAlFinal(Nodo* nodo) {
     Nodo* temp = head;
     if (head != nullptr){
@@ -39,4 +20,13 @@ void Lista::insertarAlFinal(Nodo* nodo) {
         head->siguiente= nullptr;
     }
     std::cout << "head: " << head << std::endl;
+}
+
+void Lista:: print(){
+    Nodo *elemento = head;
+    while(elemento->siguiente != nullptr){
+        std::cout << "[" << elemento -> getDato() << "]->";
+        elemento = elemento->siguiente;
+    }
+    std::cout << "[" << elemento -> getDato() << "]->";
 }

@@ -16,6 +16,7 @@ public:
     void insertarAlFinal(int dato);
     void insertarAlFinal(Nodo* nodo);
     Nodo* getNewNodo(int dato);
+    void print();
 
 
 };
