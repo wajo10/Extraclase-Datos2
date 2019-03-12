@@ -32,6 +32,7 @@ void Lista::insertarAlFinal(Nodo* nodo) {
             temp = temp->siguiente;
         }
         temp->siguiente = nodo;
+        nodo->siguiente= nullptr;
     }
     else{
         head = nodo;

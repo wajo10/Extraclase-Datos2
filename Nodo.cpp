@@ -38,13 +38,27 @@ void* Nodo::operator new(size_t size) {
 void Nodo::operator delete(void* nodo) {
     Nodo* temp = (Nodo*) nodo;
     Nodo* iterator = Collector::getInstance().listaNodos->head;
+    if (temp == Collector::getInstance().listaNodos->head){
+        Collector::getInstance().listaNodos->head = temp->siguiente;
+        Collector::getInstance().listaCollector->insertarAlFinal(temp);
+    }
+    if (temp->siguiente == nullptr){
+        while (iterator->siguiente != nullptr){
+            if (iterator->siguiente == temp){
+                iterator->siguiente = nullptr;
+                Collector::getInstance().listaCollector->insertarAlFinal(temp);
+                break;
+            }
+            iterator= iterator->siguiente;
+        }
+    }
     while (iterator->siguiente != nullptr){
         if (iterator->siguiente == temp){
-            Collector::getInstance().listaCollector->insertarAlFinal(temp);
             iterator->siguiente = iterator->siguiente->siguiente;
+            Collector::getInstance().listaCollector->insertarAlFinal(temp);
             break;
         }
-
+        iterator=iterator->siguiente;
     }
 
 }
