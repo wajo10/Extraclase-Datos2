@@ -7,18 +7,26 @@
 
 
 #include <cstddef>
+#include <iostream>
+#include "Collector.h"
+#include "Lista.h"
+
+class Collector;
 
 class Nodo {
 private:
     int dato =0;
 
 public:
+    Nodo();
     Nodo* siguiente = nullptr;
     void* operator new(size_t);
-    //void operator delete( void*);
+    void operator delete( void*);
     void setDato(int);
 
+
     Nodo(int,Nodo*);
+
 };
 
 

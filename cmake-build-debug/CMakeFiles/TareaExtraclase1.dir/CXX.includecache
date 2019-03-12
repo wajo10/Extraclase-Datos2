@@ -14,19 +14,17 @@ Lista.h
 Nodo.h
 /root/CLionProjects/TareaExtraclase1/Nodo.h
 
+/root/CLionProjects/TareaExtraclase1/Nodo.cpp
+Nodo.h
+/root/CLionProjects/TareaExtraclase1/Nodo.h
+
 /root/CLionProjects/TareaExtraclase1/Nodo.h
 cstddef
 -
-
-/root/CLionProjects/TareaExtraclase1/main.cpp
 iostream
 -
-stdlib.h
--
-Lista.h
-/root/CLionProjects/TareaExtraclase1/Lista.h
-Nodo.h
-/root/CLionProjects/TareaExtraclase1/Nodo.h
 Collector.h
 /root/CLionProjects/TareaExtraclase1/Collector.h
+Lista.h
+/root/CLionProjects/TareaExtraclase1/Lista.h
 

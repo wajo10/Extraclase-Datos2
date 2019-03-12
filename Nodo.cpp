@@ -3,8 +3,6 @@
 //
 
 #include "Nodo.h"
-#include "Collector.h"
-#include "Lista.cpp"
 
 
 
@@ -20,28 +18,39 @@ void Nodo::setDato(int dato){
 
 
 
-void* Nodo::operator new(size_t valor) {
+void* Nodo::operator new(size_t size) {
 
-    if (collector->listaCollector.head == nullptr ){
-        Nodo i = Nodo(valor, nullptr);
-        if (collector->listaNodos.head == nullptr){
-            collector->listaNodos.head = &i;
-        }
-        else{
-           Nodo *p = collector->listaNodos.head;
-            while(p->siguiente!= nullptr){
-                p=p->siguiente;
-            }
-            p->siguiente=&i;
-
-
-        }
+    if (Collector::getInstance().listaCollector->head == nullptr ){
+        Nodo* i = ::new Nodo();
+        Collector::getInstance().listaNodos->head = i;
+        std::cout << "Overloading new operator with size " << size << std::endl;
+        return i;
     }
     else{
-        collector->Reutilizar(valor);
+        return Collector::getInstance().pop();
 
 
 
     }
+
+}
+
+void Nodo::operator delete(void* nodo) {
+    Nodo* temp = (Nodo*) nodo;
+    Nodo* iterator = Collector::getInstance().listaNodos->head;
+    while (iterator->siguiente != nullptr){
+        if (iterator->siguiente == temp){
+            Collector::getInstance().listaCollector->insertarAlFinal(temp);
+            iterator->siguiente = iterator->siguiente->siguiente;
+            break;
+        }
+
+    }
+
+}
+
+Nodo::Nodo(){
+    siguiente = nullptr;
+    dato = 0;
 
 }
