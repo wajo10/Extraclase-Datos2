@@ -11,24 +11,19 @@ class Nodo;
 
 class Collector {
 private:
+        //! @brief Constructor de la clase collector, se instancian las listas collector y nodos
         Collector();
 public:
-        void Reutilizar(size_t valor);
-
-        Lista *listaCollector;
-        Lista *listaNodos;
+        Lista *listaCollector; //lista que tiene los nodos eliminados
+        Lista *listaNodos; //lista con los nodos creados
 
         static Collector& getInstance(){
             static Collector instance;
             return instance;
         }
-
+        //! @brief Remueve el elemento de la lista deseado
         Nodo *pop();
 
-
     };
-
-
-
 
 #endif //TAREAEXTRACLASE1_COLLECTOR_H

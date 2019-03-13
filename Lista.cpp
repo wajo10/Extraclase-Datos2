@@ -4,8 +4,6 @@
 
 #include "Lista.h"
 
-
-//! agrega al final de la lista collector
 void Lista::insertarAlFinal(Nodo* nodo) {
     Nodo* temp = head;
     if (head != nullptr){
@@ -23,9 +21,16 @@ void Lista::insertarAlFinal(Nodo* nodo) {
 
 void Lista:: print(){
     Nodo *elemento = head;
-    while(elemento->siguiente != nullptr){
-        std::cout << "[" << elemento -> getDato() << "]->";
-        elemento = elemento->siguiente;
+    if (elemento == nullptr){
+        std::cout<<"La lista no posee elementos"<<std::endl;
     }
-    std::cout << "[" << elemento -> getDato() << "]->";
+    else {
+        while (elemento->siguiente != nullptr) {
+            std::cout << "[" << elemento->getDato() << "]->";
+            elemento = elemento->siguiente;
+        }
+        std::cout << "[" << elemento -> getDato() << "]";
+    }
+
+    return;
 }

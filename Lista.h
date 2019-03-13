@@ -13,9 +13,10 @@ class Nodo;
 class Lista {
 public:
     Nodo* head = 0;
-    void insertarAlFinal(int dato);
+    //! @brief agrega al final de la lista collector
+    //! @param dato, dato que se desea mover hasta el final
     void insertarAlFinal(Nodo* nodo);
-    Nodo* getNewNodo(int dato);
+    //! @brief recorre e imprime las listas
     void print();
 
 

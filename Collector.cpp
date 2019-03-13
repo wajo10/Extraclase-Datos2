@@ -4,20 +4,21 @@
 
 #include "Collector.h"
 
-//! Quita el elemento de la lista y devuelve el elemento que se quito
+
 Nodo *Collector::pop() {
     if (listaCollector->head != nullptr){
         Nodo* toReturn = listaCollector->head;
         listaCollector->head = listaCollector->head->siguiente;
-        toReturn->siguiente = nullptr;
-        listaNodos->head->siguiente=toReturn;
+        toReturn->siguiente = listaNodos->head;
+        listaNodos->head=toReturn;
+
         return toReturn;
     }
     return nullptr;
 }
 
-//! Constructor de la clase collector, se instancian las listas collector y nodos
-Collector::Collector() {
+
+    Collector::Collector() {
         listaCollector = new Lista();
         listaNodos = new Lista();
 }

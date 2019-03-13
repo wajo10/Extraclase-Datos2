@@ -3,6 +3,8 @@
 #include "Lista.h"
 #include "Nodo.h"
 
+void pruebas();
+
 using namespace std;
 
 int main() {
@@ -10,18 +12,25 @@ int main() {
     Nodo* b = new Nodo(6,a);
     Nodo* c = new Nodo(7,b);
     Nodo* d = new Nodo(8,c);
-    delete (b);
+    pruebas();
+    delete (a);
+    pruebas();
+    Nodo* e = new Nodo(9, d);
+    pruebas();
     delete(c);
-    delete(d);
-    Nodo* e = new Nodo(9, nullptr);
+    pruebas();
     Nodo* f = new Nodo(10,e);
-    Nodo* g = new Nodo(25,f);
-    Nodo* h = new Nodo(15,g);
-    delete(f);
-    delete(e);
-    Collector::getInstance().listaNodos->print();
-    cout <<"\nlista Collector:" << endl;
-    Collector::getInstance().listaCollector->print();
+    pruebas();
+    Nodo* g = new Nodo(11,f);
+    pruebas();
     return 0;
 }
 
+void pruebas() {
+    std::cout <<"\nlista Original:" << std::endl;
+    Collector::getInstance().listaNodos->print();
+    std::cout <<"\nlista Collector:" << std::endl;
+    Collector::getInstance().listaCollector->print();
+    std::cout <<"\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*" << std::endl;
+    return;
+}

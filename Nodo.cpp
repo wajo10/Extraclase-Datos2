@@ -4,25 +4,19 @@
 
 #include "Nodo.h"
 
-
-//! Constructor con parametros, _dato valor del nodo, _siguiente direccion de memoria a la que apunta el nodo
 Nodo::Nodo(int _dato, Nodo* _siguiente) {
     dato = _dato;
     siguiente = _siguiente;
 }
 
-void Nodo::setDato(int dato){
-    this->dato=dato;
-}
 int Nodo::getDato() {
     return this->dato;
 }
 
-//! Sobreescritura del operador new
 void* Nodo::operator new(size_t size) {
 
     if (Collector::getInstance().listaCollector->head == nullptr ){
-        Nodo* i = ::new Nodo();
+        Nodo* i = (Nodo*) malloc(size);
         Collector::getInstance().listaNodos->head = i;
 
         return i;
@@ -34,7 +28,7 @@ void* Nodo::operator new(size_t size) {
     }
 
 }
-//! Sobreescritura del operador delete
+
 void Nodo::operator delete(void* nodo) {
 
     Nodo* temp = (Nodo*) nodo;
@@ -42,7 +36,6 @@ void Nodo::operator delete(void* nodo) {
     if (temp == Collector::getInstance().listaNodos->head){ //caso en el que se borra el head
         Collector::getInstance().listaNodos->head = temp->siguiente;
         Collector::getInstance().listaCollector->insertarAlFinal(temp);
-
     }
     if (temp->siguiente == nullptr){ //En caso de querer eliminar el ultimo nodo
         while (iterator->siguiente != nullptr){
@@ -66,9 +59,8 @@ void Nodo::operator delete(void* nodo) {
     }
 
 }
-//! Constructor vacio de la clase nodo
+
 Nodo::Nodo(){
     siguiente = nullptr;
     dato = 0;
-
 }
