@@ -60,8 +60,6 @@ void Nodo::operator delete(void* nodo) {
             iterator->siguiente = iterator->siguiente->siguiente;
             Collector::getInstance().listaCollector->insertarAlFinal(temp);
 
-            Collector::getInstance().listaCollector->print();
-            Collector::getInstance().listaNodos->print();
             break;
         }
         iterator=iterator->siguiente;

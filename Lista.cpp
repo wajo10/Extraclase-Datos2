@@ -19,7 +19,6 @@ void Lista::insertarAlFinal(Nodo* nodo) {
         head = nodo;
         head->siguiente= nullptr;
     }
-    std::cout << "head: " << head << std::endl;
 }
 
 void Lista:: print(){

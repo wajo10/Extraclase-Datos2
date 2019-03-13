@@ -10,6 +10,7 @@ Nodo *Collector::pop() {
         Nodo* toReturn = listaCollector->head;
         listaCollector->head = listaCollector->head->siguiente;
         toReturn->siguiente = nullptr;
+        listaNodos->head->siguiente=toReturn;
         return toReturn;
     }
     return nullptr;
